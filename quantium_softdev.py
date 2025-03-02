@@ -14,7 +14,15 @@ def sales(df, df1, df2):
     combined_df =pd.concat([df, df1, df2], ignore_index = True)
     
     pink_morsel_df =combined_df[combined_df['product'].str.strip().str.lower() == "pink morsel"]
+    
+    formatted_df = pink_morsel_df[['sales', 'date', 'region']]
+    
+    formatted_df.to_csv('pink_morsel_sales.csv', index=False)
+    
     return pink_morsel_df[['sales', 'date', 'region']]
+
+
+    
 
 print(sales(df, df1, df2))
 
